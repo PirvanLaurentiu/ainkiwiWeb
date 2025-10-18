@@ -1,10 +1,34 @@
-Ainkiwi — Official Website
+# 🎮 Ainkiwi — Official Website
 
-Ainkiwi is a small studio that develops mobile games.
-This website is a simple, static landing page announcing that our full site is Coming Soon !!! and providing a clear Privacy Policy for our game Hillside Delivery: Truck Sim.
+**Ainkiwi** is a small studio that develops **mobile games**.  
+This site is a simple, static landing page announcing that our full website is **Coming Soon !!!** and hosting the **Privacy Policy** for our game *Hillside Delivery: Truck Sim*.
 
-Home: introduces Ainkiwi as a mobile game developer and invites contact.
+---
 
-Privacy: outlines how we handle data in Hillside Delivery: Truck Sim (analytics/ads basics, opt-out, retention, children’s privacy, etc.).
+## 🚀 What’s here
 
-Visit: https://www.ainkiwi.com/
+- **Home** — a clean “**Coming Soon !!!**” page that introduces Ainkiwi as a **mobile game developer** and provides a quick way to **contact us**.
+- **Privacy** — a clear, readable **Privacy Policy** for *Hillside Delivery: Truck Sim* covering:
+  - **Information collection & use**
+  - **Third-party services** (e.g., **AdMob**)
+  - **Opt-out rights & data retention**
+  - **Children’s privacy**
+  - **Security** and **changes**
+
+---
+
+## 🔗 Live pages
+
+- **Homepage:** https://www.ainkiwi.com/  
+- **Privacy Policy:** https://www.ainkiwi.com/privacy
+
+---
+
+## ✉️ Contact
+
+Have questions or want to say hi?  
+**Email:** **contact@ainkiwi.com**
+
+---
+
+© **Ainkiwi**. All rights reserved.
