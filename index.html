@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ainkiwi — Mobile Games • Coming Soon</title>
+  <meta name="description" content="Ainkiwi is a studio crafting delightful mobile games. Our website is coming soon." />
+  <link rel="icon" href="/favicon.ico" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Ainkiwi — Mobile Games" />
+  <meta property="og:description" content="We build fun, polished mobile games. Website coming soon." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.ainkiwi.com/" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <style>
+    :root{
+      --bg: radial-gradient(1250px 650px at 10% 10%, rgba(131,255,187,.18), transparent 40%),
+            radial-gradient(1250px 650px at 90% 20%, rgba(148,187,233,.18), transparent 40%),
+            linear-gradient(180deg, #0b1020 0%, #0b0f1a 100%);
+      --glass: rgba(255,255,255,0.06);
+      --text: #e8eef9;
+      --accent: #7ef2b0;
+      --muted: #a9b2c7;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background: var(--bg);
+      display:flex; align-items:center; justify-content:center; padding:24px;
+    }
+    .card{
+      width:min(920px, 92vw);
+      background:linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px; padding:40px; backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+      text-align:center;
+    }
+    .logo{
+      display:inline-flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
+      margin-bottom:12px;
+    }
+    .logo-mark{
+      width:44px; height:44px; border-radius:12px;
+      background: conic-gradient(from 120deg, #7ef2b0, #94bbe9, #7ef2b0);
+      box-shadow: 0 6px 20px rgba(126,242,176,.45);
+    }
+    h1{font-size:clamp(32px, 6vw, 54px); margin:10px 0 12px; letter-spacing:.3px}
+    .tag{display:inline-block; border:1px solid rgba(255,255,255,.14); background:var(--glass); padding:6px 10px; border-radius:999px; font-size:12px; color:var(--muted);}
+    p{color:var(--muted); font-size:clamp(16px, 2.2vw, 18px); line-height:1.65; margin:18px 0 28px}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; justify-content:center}
+    .btn{
+      appearance:none; border:none; cursor:pointer; text-decoration:none; color:#0b0f1a; font-weight:700;
+      background:var(--accent); padding:14px 18px; border-radius:14px; transition: transform .05s ease;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .ghost{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.18)}
+    footer{margin-top:28px; font-size:14px; color:var(--muted)}
+    footer a{color:var(--text); opacity:.9}
+    .ticker{margin-top:22px; font-size:12px; opacity:.85}
+  </style>
+</head>
+<body>
+  <main class="card" role="main" aria-label="Ainkiwi Coming Soon">
+    <a class="logo" href="/">
+      <span class="logo-mark" aria-hidden="true"></span>
+      <strong style="font-size:18px; letter-spacing:.4px">Ainkiwi</strong>
+    </a>
+
+    <span class="tag">Mobile Game Studio</span>
+    <h1>Coming Soon<span aria-hidden="true"> !!!</span></h1>
+    <p>
+      We’re a company that develops <strong>mobile games</strong> — playful, polished, and performance-friendly.
+      Our official site is in the works. Stay tuned!
+    </p>
+
+    <div class="cta-row">
+      <a class="btn" href="mailto:contact@ainkiwi.com" aria-label="Email Ainkiwi">Contact Us</a>
+      <a class="btn ghost" href="/privacy" aria-label="Read our Privacy Policy">Privacy Policy</a>
+    </div>
+
+    <div class="ticker">© <span id="y"></span> Ainkiwi. All rights reserved.</div>
+
+    <footer>
+      <small>Built with ❤️ for players everywhere.</small>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
