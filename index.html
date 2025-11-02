@@ -1,99 +1,346 @@
-
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ainkiwi — Mobile Games • Coming Soon</title>
-  <meta name="description" content="Ainkiwi is a studio crafting delightful mobile games. Our website is coming soon." />
-  <link rel="icon" href="/favicon.ico" />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Ainkiwi — Mobile Games" />
-  <meta property="og:description" content="We build fun, polished mobile games. Website coming soon." />
+  <title>Ainkiwi Interactive — Cozy Mobile Games</title>
+  <meta name="description" content="Ainkiwi Interactive — Cozy Mobile Games with Satisfying Physics. We made it. Now you make it." />
+  <meta property="og:title" content="Ainkiwi Interactive" />
+  <meta property="og:description" content="Cozy Mobile Games with Satisfying Physics" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.ainkiwi.com/" />
-  <meta property="og:image" content="/og-image.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-
+  <meta name="theme-color" content="#D6F10B" />
   <style>
     :root{
-      --bg: radial-gradient(1250px 650px at 10% 10%, rgba(131,255,187,.18), transparent 40%),
-            radial-gradient(1250px 650px at 90% 20%, rgba(148,187,233,.18), transparent 40%),
-            linear-gradient(180deg, #0b1020 0%, #0b0f1a 100%);
-      --glass: rgba(255,255,255,0.06);
-      --text: #e8eef9;
-      --accent: #7ef2b0;
-      --muted: #a9b2c7;
+      --kiwi:#D6F10B;           /* primary brand lime */
+      --kiwi-2:#E8F89E;         /* soft lime */
+      --ink:#0E0F12;            /* near black */
+      --cloud:#F7F8FB;          /* light surface */
+      --muted:#6B6F76;          /* text muted */
+      --radius:22px;
+      --shadow:0 10px 30px rgba(0,0,0,.12);
     }
+
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color:var(--text);
-      background: var(--bg);
-      display:flex; align-items:center; justify-content:center; padding:24px;
+    html,body{margin:0;height:100%;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;color:var(--ink);background:#ffffff;}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;background:rgba(255,255,255,.7);backdrop-filter:saturate(180%) blur(12px);
+      border-bottom:1px solid rgba(0,0,0,.06);
     }
-    .card{
-      width:min(920px, 92vw);
-      background:linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:24px; padding:40px; backdrop-filter: blur(8px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
-      text-align:center;
+    .wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+    .nav{display:flex;align-items:center;gap:18px;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:120px;height:60px;border-radius:12px;background:#f5f6fd;display:grid;place-items:center;overflow:hidden}
+    .brand .logo img{width:100%;height:100%;object-fit:contain}
+    .brand .word{font-weight:800;letter-spacing:.5px}
+    .nav a.btn{padding:10px 14px;border-radius:12px;background:#fff;border:1px solid rgba(0,0,0,.08);box-shadow:var(--shadow);font-weight:600}
+    .nav .right{display:flex;align-items:center;gap:10px}
+
+    /* Hero */
+    .hero{
+      position:relative;overflow:hidden;background:radial-gradient(1200px 600px at 80% -10%, #f2fbe0 0%, #ffffff 70%),
+                                  linear-gradient(180deg, #fff 0%, #fff 100%);
     }
-    .logo{
-      display:inline-flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
-      margin-bottom:12px;
+    .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;padding:64px 18px}
+    .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:var(--kiwi-2);border:1px solid rgba(0,0,0,.06);font-weight:700}
+
+    .title{font-size:clamp(34px, 6vw, 64px);line-height:1.02;margin:14px 0 12px;font-weight:900;letter-spacing:-1px}
+    .subtitle{font-size:clamp(18px,2.6vw,22px);color:#2b2f36;opacity:.9;margin-bottom:24px}
+    .slogans{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 24px}
+    .chip{background:#fff;border:1px solid rgba(0,0,0,.08);padding:10px 14px;border-radius:999px;font-weight:600}
+
+    .ctaRow{display:flex;flex-wrap:wrap;gap:12px}
+    .btnPrimary{background:var(--kiwi);border:1px solid #c7e80b;padding:14px 18px;border-radius:14px;font-weight:800;box-shadow:0 14px 30px rgba(174, 190, 7, .35)}
+    .btnQuiet{background:#fff;border:1px solid rgba(0,0,0,.12);padding:14px 18px;border-radius:14px;font-weight:700}
+
+    .heroCard{
+      position:relative;background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:var(--shadow);
+      padding:18px
     }
-    .logo-mark{
-      width:44px; height:44px; border-radius:12px;
-      background: conic-gradient(from 120deg, #7ef2b0, #94bbe9, #7ef2b0);
-      box-shadow: 0 6px 20px rgba(126,242,176,.45);
+    .heroCard .cover{
+      border-radius:16px;overflow:hidden;aspect-ratio:4/4;display:grid;place-items:center;color:#111;font-weight:900
     }
-    h1{font-size:clamp(32px, 6vw, 54px); margin:10px 0 12px; letter-spacing:.3px}
-    .tag{display:inline-block; border:1px solid rgba(255,255,255,.14); background:var(--glass); padding:6px 10px; border-radius:999px; font-size:12px; color:var(--muted);}
-    p{color:var(--muted); font-size:clamp(16px, 2.2vw, 18px); line-height:1.65; margin:18px 0 28px}
-    .cta-row{display:flex; gap:12px; flex-wrap:wrap; justify-content:center}
-    .btn{
-      appearance:none; border:none; cursor:pointer; text-decoration:none; color:#0b0f1a; font-weight:700;
-      background:var(--accent); padding:14px 18px; border-radius:14px; transition: transform .05s ease;
+    .cover small{opacity:.7}
+
+    /* Section headings */
+    section{padding:70px 0}
+    .h{font-size:28px;font-weight:900;letter-spacing:-.3px;margin:0 0 22px}
+    .h span{display:inline-block;background:var(--kiwi);padding:6px 10px;border-radius:10px;border:1px solid #cfe50e}
+
+    /* Screenshots grid */
+    .shots{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .shot{position:relative;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,.06);box-shadow:var(--shadow);cursor:pointer}
+    .shot img{width:100%;height:100%;object-fit:cover;display:block}
+    .shot:after{content:"Click to preview";position:absolute;left:0;right:0;bottom:0;padding:8px 10px;font-size:12px;background:linear-gradient(transparent, rgba(0,0,0,.55));color:#fff;opacity:0;transition:.25s}
+    .shot:hover:after{opacity:1}
+
+    /* Download + trailer */
+    .dlRow{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:18px}
+    .playBadge{display:inline-flex;gap:10px;align-items:center;border:1px solid rgba(0,0,0,.12);background:#fff;border-radius:12px;padding:12px 16px;box-shadow:var(--shadow);font-weight:800}
+    .playBadge svg{width:22px;height:22px}
+
+    .trailerBtn{display:inline-flex;gap:8px;align-items:center;border:1px dashed rgba(0,0,0,.25);background:#fff;border-radius:12px;padding:12px 16px;font-weight:800}
+
+    /* Studio/about */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .card p{margin:8px 0 0;color:#30343b}
+
+    /* Footer */
+    footer{background:#0b0c0f;color:#e7e9ee}
+    footer .wrap{padding:30px 18px}
+	footer .logo img {
+	  height: 80px;    /* adjust size */
+	  width: auto;     /* keep aspect ratio */
+	}
+
+    .social{display:flex;gap:10px;flex-wrap:wrap}
+    .social a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+    .social svg{width:18px;height:18px}
+    .footGrid{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center}
+    .footLinks{display:flex;gap:14px;flex-wrap:wrap}
+
+    /* Lightbox modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(2px);display:none;align-items:center;justify-content:center;padding:18px;z-index:60}
+    .modal.open{display:flex}
+    .modalInner{max-width:min(1000px,90vw);max-height:85vh;background:#111;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+    .modalInner img, .modalInner iframe{display:block;width:100%;height:100%;object-fit:contain;background:#000}
+    .modalClose{position:absolute;top:14px;right:14px;background:#fff;border:none;border-radius:999px;width:38px;height:38px;display:grid;place-items:center;cursor:pointer;box-shadow:var(--shadow)}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero .wrap{grid-template-columns:1fr;gap:16px;padding-top:38px}
+      .shots{grid-template-columns:repeat(2,1fr)}
+      .cards{grid-template-columns:1fr}
+      .footGrid{grid-template-columns:1fr}
     }
-    .btn:hover{transform: translateY(-1px)}
-    .ghost{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.18)}
-    footer{margin-top:28px; font-size:14px; color:var(--muted)}
-    footer a{color:var(--text); opacity:.9}
-    .ticker{margin-top:22px; font-size:12px; opacity:.85}
   </style>
 </head>
 <body>
-  <main class="card" role="main" aria-label="Ainkiwi Interactive Coming Soon">
-    <a class="logo" href="/">
-      <span class="logo-mark" aria-hidden="true"></span>
-      <strong style="font-size:18px; letter-spacing:.4px">Ainkiwi Interactive</strong>
-    </a>
-
-    <span class="tag">Mobile Game Studio</span>
-    <h1>Coming Soon<span aria-hidden="true"> !!!</span></h1>
-    <p>
-      We’re a company that develops <strong>mobile games</strong> — playful, polished, and performance-friendly.
-      Our official site is in the works. Stay tuned!
-    </p>
-
-    <div class="cta-row">
-      <a class="btn" href="mailto:contact@ainkiwi.com" aria-label="Email Ainkiwi">Contact Us</a>
-      <a class="btn ghost" href="/privacy-policy" aria-label="Read our Privacy Policy">Privacy Policy</a>
+  <!-- Header -->
+  <header>
+    <div class="wrap nav">
+      <a href="#top" class="brand" aria-label="Ainkiwi Interactive home">
+        <span class="logo" aria-hidden="true">
+          <img src="assets/logo_wide.png" alt="Ainkiwi logo" onerror="this.style.display='none'" />
+        </span>
+      </a>
+      <nav class="right">
+        <a class="btn" href="#game">Game</a>
+        <a class="btn" href="#studio">Studio</a>
+        <a class="btn" href="#contact">Contact</a>
+        <a class="btn" href="https://www.ainkiwi.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="ticker">© <span id="y"></span> Ainkiwi. All rights reserved.</div>
+  <!-- Hero -->
+  <section id="top" class="hero">
+    <div class="wrap">
+      <div>
+        <span class="badge" title="Cozy Mobile Games with Satisfying Physics">Cozy • Satisfying • Mobile</span>
+        <h1 class="title">We made it.<br/>Now you make it.</h1>
+        <p class="subtitle">Ainkiwi Interactive crafts cozy mobile games with satisfying physics and soft, feel‑good interactions.</p>
+        <div class="slogans">
+          <span class="chip">we made it. now you make it</span>
+          <span class="chip">step inside</span>
+        </div>
+        <div class="ctaRow">
+			<a href="https://play.google.com/store/apps/details?id=com.Ainkiwi.HillsideDelivery" target="_blank" rel="noopener">
+			  <img src="assets/google-play-badge.png" alt="Get it on Google Play" style="height:44px">
+			</a>
+			<a href="https://www.youtube.com/@ainkiwi" target="_blank" rel="noopener">
+			  <img src="assets/youtube.png" alt="Youtube" style="height:44px">
+			</a>
+			<a href="https://www.instagram.com/ainkiwi" target="_blank" rel="noopener">
+			  <img src="assets/instagram.png" alt="Instagram" style="height:44px">
+			</a>
+			<a href="https://www.facebook.com/profile.php?id=61582947285264" target="_blank" rel="noopener">
+			  <img src="assets/facebook.png" alt="Facebook" style="height:44px">
+			</a>
+			<a href="https://www.tiktok.com/@ainkiwi" target="_blank" rel="noopener">
+			  <img src="assets/tiktok.png" alt="Tiktok" style="height:44px">
+			</a>
+			<a class="trailerBtn"
+			   href="https://youtu.be/MBo-b9DAaLs"
+			   target="_blank" rel="noopener"
+			   title="Watch Trailer">▶ Watch trailer</a>
+        </div>
+      </div>
+      <aside class="heroCard" aria-label="Brand preview">
+        <div class="cover">
+          <div style="text-align:center">
+            <img src="assets/Promo square 2.png" alt="Ainkiwi visual" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'" />
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
 
-    <footer>
-      <small>Built with ❤️ for players everywhere.</small>
-    </footer>
-  </main>
+  <!-- Game showcase -->
+  <section id="game">
+    <div class="wrap">
+      <h2 class="h"><span>Hillside Delivery: Truck Sim</span></h2>
+      <p>Climb hills, haul cargo, upgrade your trucks & trailers in a fun physics sim..</p>
+
+      <div class="shots" id="shots">
+        <!-- 8 screenshot placeholders using inline SVGs so there are no external dependencies. Replace each src with your real screenshot paths. -->
+		<a class="shot" data-large="assets/screenshots/shot1.webp" aria-label="Satisfying physics">
+		  <img loading="lazy" alt="Satisfying physics" src="assets/screenshots/1.png">
+		</a>
+		<a class="shot" data-large="assets/screenshots/shot1.webp" aria-label="New Areas">
+		  <img loading="lazy" alt="New Areas" src="assets/screenshots/2.png">
+		</a>
+		<a class="shot" data-large="assets/screenshots/shot1.webp" aria-label="Haul Matters">
+		  <img loading="lazy" alt="Haul Matters" src="assets/screenshots/3.png">
+		</a>
+		<a class="shot" data-large="assets/screenshots/shot1.webp" aria-label="Upgrades">
+		  <img loading="lazy" alt="Upgrades" src="assets/screenshots/4.png">
+		</a>
+		<a class="shot" data-large="assets/screenshots/shot1.webp" aria-label="Master Hills">
+		  <img loading="lazy" alt="Master Hills" src="assets/screenshots/5.png">
+		</a>
+		<a class="shot" data-large="assets/screenshots/shot1.webp" aria-label="Spill Cargo">
+		  <img loading="lazy" alt="Spill Cargo" src="assets/screenshots/6.png">
+		</a>
+		<a class="shot" data-large="assets/screenshots/shot1.webp" aria-label="Earnings">
+		  <img loading="lazy" alt="Earnings" src="assets/screenshots/7.png">
+		</a>
+		<a class="shot" data-large="assets/screenshots/shot1.webp" aria-label="Unlock Cars">
+		  <img loading="lazy" alt="Unlock Cars" src="assets/screenshots/8.png">
+		</a>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- Studio section -->
+  <section id="studio" style="background:linear-gradient(180deg,#fff 0,#FBFDEE 100%)">
+    <div class="wrap">
+      <h2 class="h"><span>About the Studio</span></h2>
+      <div class="cards">
+        <div class="card">
+          <h3 style="margin:0">Cozy by design</h3>
+          <p>We obsess over feel: soft visuals, gentle sounds, and satisfying physics that make every interaction a little delight.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin:0">Mobile first</h3>
+          <p>Built natively for phones. One‑hand play, smooth performance, and short sessions that brighten your day.</p>
+        </div>
+        <div class="card">
+          <h3 style="margin:0">Crafted with care</h3>
+          <p>Small team, big heart. We polish until it feels right—and then a little more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <h2 class="h"><span>Get in touch</span></h2>
+      <p>Press, partnerships, or just to say hi—drop us a line.</p>
+      <div class="dlRow">
+        <a class="btnPrimary" href="mailto:contact@ainkiwi.com">contact@ainkiwi.com</a>
+        <a class="btnQuiet" href="https://www.ainkiwi.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap footGrid">
+      <div style="display:flex;gap:12px;align-items:center">
+        <span class="logo" "><img src="assets/logo_footer.png" alt="Ainkiwi logo" onerror="this.style.display='none'"/></span>
+        <div>
+          <strong>Cozy Mobile Games with Satisfying Physics</strong><br/>
+        </div>
+      </div>
+      <div class="footLinks">
+        <a href="#top">Home</a>
+        <a href="#game">Game</a>
+        <a href="#studio">Studio</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.ainkiwi.com/privacy-policy" target="_blank" rel="noopener">Privacy</a>
+      </div>
+      <div class="social" style="grid-column:1 / -1">
+        <a href="#" title="YouTube placeholder" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.7 3.6 12 3.6 12 3.6s-7.7 0-9.4.5A3 3 0 0 0 .5 6.2 31.8 31.8 0 0 0 0 12a31.8 31.8 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.7.5 9.4.5 9.4.5s7.7 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.8 31.8 0 0 0 24 12a31.8 31.8 0 0 0-.5-5.8zM9.6 15.5V8.5L15.8 12l-6.2 3.5z"/></svg>
+          <span>YouTube</span>
+        </a>
+        <a href="#" title="Facebook placeholder" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.6V12h2.8V9.6c0-2.8 1.7-4.3 4.2-4.3 1.2 0 2.5.2 2.5.2v2.7h-1.4c-1.4 0-1.8.9-1.8 1.8V12h3.1l-.5 2.9h-2.6v7A10 10 0 0 0 22 12"/></svg>
+          <span>Facebook</span>
+        </a>
+        <a href="#" title="Instagram placeholder" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5zM18 6.3a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 18 6.3z"/></svg>
+          <span>Instagram</span>
+        </a>
+        <a href="#" title="TikTok placeholder" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 8.1a7.1 7.1 0 0 1-4.1-1.3v7.2a6 6 0 1 1-6-6c.5 0 1 .1 1.5.2v3a3 3 0 1 0 2.4 2.9V2h2.5A4.6 4.6 0 0 0 21 6.5z"/></svg>
+          <span>TikTok</span>
+        </a>
+      </div>
+      <p style="grid-column:1 / -1;opacity:.7;margin:8px 0 0">© <span id="year"></span> Ainkiwi Interactive</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox / Trailer Modal -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Preview">
+    <button class="modalClose" aria-label="Close preview" onclick="closeModal()">✕</button>
+    <div class="modalInner" id="modalInner"></div>
+  </div>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // Year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Screenshot lightbox
+    const modal = document.getElementById('modal');
+    const inner = document.getElementById('modalInner');
+
+    function openModal(content){
+      inner.innerHTML = '';
+      inner.appendChild(content);
+      modal.classList.add('open');
+    }
+    function closeModal(){
+      modal.classList.remove('open');
+      inner.innerHTML = '';
+    }
+    modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); });
+
+    document.querySelectorAll('.shot').forEach((shot)=>{
+      shot.addEventListener('click', ()=>{
+        const img = shot.querySelector('img').cloneNode(true);
+        img.style.width='min(1000px, 90vw)'; img.style.height='auto';
+        openModal(img);
+      })
+    })
+
+    // Trailer button opens YouTube modal (replace data-youtube-id with your trailer ID)
+    const trailerBtn = document.getElementById('trailerBtn');
+    trailerBtn.addEventListener('click', ()=>{
+      const id = trailerBtn.getAttribute('data-youtube-id') || '';
+      const wrap = document.createElement('div');
+      wrap.style.aspectRatio = '16/9';
+      const iframe = document.createElement('iframe');
+      iframe.width = '100%';
+      iframe.height = '100%';
+      iframe.src = id ? `https://www.youtube.com/embed/${id}?autoplay=1&rel=0` : 'about:blank';
+      iframe.title = 'Game Trailer';
+      iframe.frameBorder = '0';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+      iframe.allowFullscreen = true;
+      wrap.appendChild(iframe);
+      openModal(wrap);
+    });
   </script>
 </body>
 </html>
